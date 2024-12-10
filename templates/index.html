@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Truck AR Navigation</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/2.0.1/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/location-based/ar.min.js"></script>
+</head>
+<body>
+    <h1>Find the Taco Truck</h1>
+    <p>Allow camera and location permissions to start AR navigation.</p>
+
+    <!-- AR Scene -->
+    <a-scene embedded arjs="sourceType: webcam;">
+        <a-camera gps-camera rotation-reader></a-camera>
+
+        <!-- Arrow pointing to the food truck -->
+        <a-entity
+            gps-entity-place="latitude: 37.7749; longitude: -122.4194;"
+            geometry="primitive: cone; height: 2; radiusBottom: 0.5; radiusTop: 0;"
+            material="color: red;"
+            scale="1 1 1">
+        </a-entity>
+    </a-scene>
+</body>
+</html>
