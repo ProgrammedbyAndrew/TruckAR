@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Truck AR Navigation</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/location-based/ar.min.js"></script>
 </head>
 <body>
     <h1>Find the Food Truck</h1>
-    <p>Allow camera permissions to test the arrow rendering.</p>
+    <p>Allow camera and location permissions to start AR navigation.</p>
 
     <!-- AR Scene -->
-    <a-scene embedded>
-        <a-camera></a-camera>
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: true;">
+        <!-- Camera -->
+        <a-camera gps-camera rotation-reader></a-camera>
 
-        <!-- Force the arrow to appear in front of the user -->
+        <!-- Arrow pointing to the food truck -->
         <a-entity
-            position="0 1 -5"
+            gps-entity-place="latitude: 28.3371586; longitude: -81.4644532;"
             geometry="primitive: cone; height: 2; radiusBottom: 0.5;"
             material="color: red;"
-            scale="5 5 5">
+            scale="10 10 10">
         </a-entity>
     </a-scene>
 </body>
